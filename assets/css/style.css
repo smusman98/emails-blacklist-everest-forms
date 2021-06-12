@@ -1,0 +1,12 @@
+.blacklisting-form{
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+.blacklisting-form select{
+    width: 100%;
+}
+
+.blacklisting-form textarea{
+    width: 82%;
+}

@@ -266,7 +266,7 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
                             foreach ( $forms as $id => $form )
                             {
                                 if ( !array_key_exists( $id, $blacklisted_forms ) )
-                                    echo "<option value='$id'>$form</option>";
+                                    echo "<option value='{$id}'>{$form}</option>";
                             }
                             ?>
                         </select>
@@ -380,7 +380,7 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
         {
             if ( isset( $_POST['form_id'] ) )
             {
-                $form_id = $_POST['form_id'];
+                $form_id = sanitize_text_field( $_POST['form_id'] );
 
                 $form_fields = evf_get_form_fields( $form_id );
 
@@ -395,7 +395,7 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
                     $index++;
                 }
 
-                echo json_encode( $fields );
+                echo wp_json_encode( $fields );
 
                 die;
             }
@@ -413,10 +413,11 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
             {
                 $form = array();
 
-                $form['form_id'] = $_POST['form_id'];
-                $form['field'] = $_POST['field'];
-                $form['values'] = $_POST['value'];
-                $form['by'] = $_POST['by'];
+                $form['form_id'] = sanitize_text_field( $_POST['form_id'] );
+                $form['field'] = sanitize_text_field( $_POST['field'] );
+                $form['values'] = sanitize_text_field( $_POST['value'] );
+                $form['by'] = sanitize_text_field( $_POST['by'] );
+
 
                 if ( empty( $form['form_id'] ) || empty( $form['field'] ) || empty( $form['values'] ) || empty( $form['by'] ) )
                 {
@@ -440,7 +441,8 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
         {
             if( isset( $_POST['form_id'] ) )
             {
-                efeb_delete_blacklisted_form( $_POST['form_id'] );
+                $form_id = sanitize_text_field( $_POST['form_id'] );
+                efeb_delete_blacklisted_form( $form_id );
                 echo 'deleted';
                 die;
             }

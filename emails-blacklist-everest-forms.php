@@ -266,7 +266,7 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
                             foreach ( $forms as $id => $form )
                             {
                                 if ( !array_key_exists( $id, $blacklisted_forms ) )
-                                    echo "<option value='{$id}'>{$form}</option>";
+                                    echo "<option value='".esc_attr( $id )."'>".esc_html( $form )."</option>";
                             }
                             ?>
                         </select>
@@ -395,7 +395,13 @@ if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
                     $index++;
                 }
 
-                echo wp_json_encode( $fields );
+                $allowed = array();
+
+                $result = wp_json_encode( $fields );
+
+                $result = wp_kses( $result, $allowed );
+
+                echo $result;
 
                 die;
             }

@@ -3,49 +3,15 @@
  * Plugin Name: Emails Blacklist for Everest Forms
  * Plugin URI: https://scintelligencia.com/
  * Description: Admin will be able to blacklist by email addresses, domains, and other fields , Users with blacklisted forms won't be submit.
- * Version: 1.0.1
+ * Version: 1.0.3
  * Author: Syed Muhammad Usman
  * Author URI: https://www.linkedin.com/in/syed-muhammad-usman/
  * License: GPL v2 or later
- * Stable tag: 1.0.1
+ * Stable tag: 1.0.3
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Tags: form, forms, everest, everest form, everest forms
  * @author Syed Muhammad Usman
  */
-
-if ( ! function_exists( 'ma_fs' ) ) :
-	/**
-	 * Freemius.
-     *
-     * @return string|object
-     * @version 1.0
-     * @since 1.0.1
-	 */
-	function ma_fs() {
-		global $ma_fs;
-		if ( ! isset( $ma_fs ) ) {
-			require_once dirname( __FILE__ ) . '/includes/freemius/start.php';
-			$ma_fs = fs_dynamic_init( array(
-				'id'                  => '8584',
-				'slug'                => 'EmailsBlacklistforEverestForms',
-				'type'                => 'plugin',
-				'public_key'          => 'pk_d8eb9b8460ae0d4e380345fa11f46',
-				'is_premium'          => false,
-				'has_addons'          => false,
-				'has_paid_plans'      => false,
-				'menu'                => array(
-					'first-path'     => 'admin.php?page=everest-forms-emails-blacklist',
-					'account'        => false,
-					'support'        => false,
-				),
-			) );
-		}
-		return $ma_fs;
-	}
-endif;
-
-ma_fs();
-do_action( 'ma_fs_init' );
 
 if ( !class_exists( 'EmailsBlacklistEverestForms' ) ):
     class EmailsBlacklistEverestForms

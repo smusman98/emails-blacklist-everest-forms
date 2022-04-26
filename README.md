@@ -2,8 +2,8 @@
 Contributors: Syed Muhammad Usman
 Tags: form, forms, everest, everest form, everest forms, email blacklist, block email, blacklist
 Requires at least: 4.9
-Tested up to: 5.7
-Stable tag: 1.0.1
+Tested up to: 5.9.3
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,12 @@ Navigate to Everest Forms > Emails Blacklist here you can block by email address
 * [Everest Forms](https://wpeverest.com/wordpress-plugins/everest-forms/)
 
 === Changelog ===
+
+= 1.0.3 Apr 26, 2022 =
+* Freemius Removal
+
+= 1.0.2 Mar 18, 2022 =
+* Freemius SDK Updated to 2.5.0.1
 
 = 1.0.1 June 26, 2021 =
 * Library Added
